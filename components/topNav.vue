@@ -36,5 +36,17 @@
 </script>
 
 <style lang="scss" scoped>
-
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #d2a47ecc;
+        a {
+            // align-self: center;
+            padding: 1rem;
+            color: white;
+            font-style: none;
+            text-decoration: none;
+        }
+    }
 </style>
