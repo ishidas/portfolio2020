@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav ref="navigation">
         <router-link           
             v-for="(item, index) in items"
             :key="index"
@@ -32,6 +32,13 @@
                 ],
             }
         },
+        mounted() {
+            if (process.client) {
+                this.$window
+                console.log('nav', this.$refs.navigation);
+            
+            }
+        }
     }
 </script>
 
