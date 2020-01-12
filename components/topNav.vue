@@ -40,9 +40,8 @@
         width: 100%;
         display: flex;
         justify-content: space-evenly;
-        background-color: #d2a47ecc;
+        z-index: 1;
         a {
-            // align-self: center;
             padding: 1rem;
             color: white;
             font-style: none;
