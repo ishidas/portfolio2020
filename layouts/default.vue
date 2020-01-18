@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <top-nav />
+    <top-nav @stick="emitStick"/>
     <nuxt/>
   </v-app>
 </template>
@@ -16,12 +16,14 @@ import TopNav from '../components/topNav.vue';
         
       }
     },
+    methods: {
+      emitStick() {
+        this.$emit('stick');
+      }
+    }
   }
 </script>
 
 <style lang="scss" scoped>
-  nav {
-    position: fixed;
-    top: 0;
-  }
+
 </style>

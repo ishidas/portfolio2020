@@ -1,4 +1,5 @@
 <template>
+<div class="nav-wrapper">
     <nav ref="navigation" :class="isSticky ? 'sticky-nav' : ''">
         <router-link           
             v-for="(item, index) in items"
@@ -10,6 +11,18 @@
             {{item.value}}
         </router-link>
     </nav>
+    <!-- <nav v-if="isSticky">
+        <router-link           
+            v-for="(item, index) in items"
+            :key="index"
+            :to="{
+                name: item.page,
+            }"
+        >
+            {{item.value}}
+        </router-link>
+    </nav> -->
+</div>
 </template>
 
 <script>
@@ -36,7 +49,8 @@ import _ from 'lodash';
             }
         },
         watch: {
-            isSticky() {},
+            isSticky() {
+            },
         },
         beforeMount() {
             if (process.client) {
@@ -49,6 +63,7 @@ import _ from 'lodash';
         methods: {
             handleScroll() {
                 if (window.screenY > 0) {
+                    this.$emit('stick');
                     this.isSticky = true;
                     this.resetAnimation();
                 }
@@ -76,41 +91,46 @@ import _ from 'lodash';
 </script>
 
 <style lang="scss" scoped>
-    nav {
-        width: 100%;
+    .nav-wrapper {
         display: flex;
-        justify-content: space-evenly;
-        z-index: 1;
-        background-color: #c7a08099;
-        -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-        -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-        -o-animation: fadein 2s; /* Opera < 12.1 */
-        animation: fadein 2s;
-        a {
-            padding: 1rem;
-            color:white;
-            font-style: none;
-            text-decoration: none;
+        width: 100%;
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            z-index: 1;
+            // background-color: #c7a08099;
+            -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+            -moz-animation: fadein 2s; /* Firefox < 16 */
+            -ms-animation: fadein 2s; /* Internet Explorer */
+            -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+            a {
+                padding: 1rem;
+                color:white;
+                font-style: none;
+                text-decoration: none;
+            }
         }
     }
     .sticky-nav {
         width: 100%;
         position: sticky;
         display: flex;
+        top: 0;
+        align-self: flex-start;
         justify-content: space-evenly;
         z-index: 2;
         
-        background-color: #feffab;
-
+        // background-color: #636363c7;
+        background-color: #c7a08099;
         -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
         -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
         -o-animation: fadein 2s; /* Opera < 12.1 */
         animation: fadein 2s;
-            a {
-                color: grey;
-            }
     }
     @keyframes fadein {
     from { opacity: 0; }
