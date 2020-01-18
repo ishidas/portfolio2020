@@ -3,6 +3,8 @@
 // The variables you want to modify
 // $font-size-root: 20px;
 $font-h1-color: white;
+$app-background-color: #c7a080;
+
 html {
     scroll-behavior: smooth;
 }
@@ -13,11 +15,20 @@ html, main {
 h1 {
     color: $font-h1-color;
 }
+h2 {
+    width: 100vw;
+    font-size: 2vh;
+    padding-top: 6vh;
+    padding-left: 5vh;
+    padding-right: 6vh;
+}
 /* For mobile phones: */
 [class*="col-"] {
     width: 100%;
 }
-  
+#app {
+    background-color: $app-background-color;
+}
 @media only screen and (min-width: 600px) {
 /* For tablets: */
 .col-s-1 {width: 8.33%;}
