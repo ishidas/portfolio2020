@@ -142,7 +142,7 @@ import homeSectionTwo from '../components/homeSectionTwo';
             section {
                 height: auto;
                 h2 {
-                    padding-left: 10vh;
+                    padding-left: 7vh;
                 }   
             }
         }
@@ -160,6 +160,10 @@ import homeSectionTwo from '../components/homeSectionTwo';
             }
             section {
                 height: auto;
+                h2 {
+                    padding-left: 11vh;
+                    font-size: 3vh;
+                }
             }
         }
 

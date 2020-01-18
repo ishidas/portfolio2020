@@ -103,6 +103,7 @@
                 }
                 h2 {
                     max-width: 50%;
+                    font-size: 3vh;
                 }
                 p {
                     max-width: 50%;

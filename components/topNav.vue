@@ -11,17 +11,6 @@
             {{item.value}}
         </router-link>
     </nav>
-    <!-- <nav v-if="isSticky">
-        <router-link           
-            v-for="(item, index) in items"
-            :key="index"
-            :to="{
-                name: item.page,
-            }"
-        >
-            {{item.value}}
-        </router-link>
-    </nav> -->
 </div>
 </template>
 
