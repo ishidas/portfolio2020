@@ -41,7 +41,6 @@ import homeSectionTwo from '../components/homeSectionTwo';
 
     .home {
         display: flex;
-        // height: 750px;
         height: auto;
         flex-wrap: wrap;
         img {
@@ -61,13 +60,6 @@ import homeSectionTwo from '../components/homeSectionTwo';
             flex-wrap: wrap;
             z-index: 0;
             background-color: #f1eceb;
-            // h2 {
-            //     width: 100vw;
-            //     font-size: 2vh;
-            //     padding-top: 6vh;
-            //     padding-left: 5vh;
-            //     padding-right: 6vh;
-            // }
             p {
                 width: 40vw;
                 margin: 5vw auto;

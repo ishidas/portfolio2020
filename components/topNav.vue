@@ -26,10 +26,6 @@ import _ from 'lodash';
                         page: 'home'
                     },
                     {
-                        value: 'About',
-                        page: 'about',
-                    },
-                    {
                         value:'Contact',
                         page: 'contact',
                     }

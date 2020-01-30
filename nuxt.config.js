@@ -62,25 +62,25 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-      // config.module.rules.push(
-      //   {
-      //     test: /\.(png|jpe?g|gif|svg|webp)$/,
-      //     loader: 'url-loader',
-      //     query: {
-      //       limit: 1000, // 1kB
-      //       name: 'img/[name].[hash:7].[ext]'
-      //     }
-      //   },
-      //   {
-      //     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-      //     loader: 'url-loader',
-      //     query: {
-      //       limit: 1000, // 1kB
-      //       name: 'fonts/[name].[hash:7].[ext]'
-      //     }
-      //   }
-      // )
-      // return config;
+      config.module.rules.push(
+        {
+          test: /\.(png|jpe?g|gif|svg|webp)$/,
+          loader: 'url-loader',
+          query: {
+            limit: 10000,
+            name: 'img/[name].[hash:7].[ext]'
+          }
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+          loader: 'url-loader',
+          query: {
+            limit: 1000, // 1kB
+            name: 'fonts/[name].[hash:7].[ext]'
+          }
+        }
+      )
+      return config;
     }
   }
 }
