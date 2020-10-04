@@ -7,10 +7,9 @@
             <h1 class="titleOverBlur">{{title}}</h1>
             <h2 class="subTitleOverBlur">{{subTitle}}</h2>
         </div>
-        <section class="">
+        <section class="introSection">
             <h2>{{sectionTitle}}</h2>
             <p>{{intro}}</p>
-            <p>{{introTwo}}</p>
         </section>
     </div>
 </template>
@@ -29,8 +28,7 @@ import homeSectionTwo from '../components/homeSectionTwo';
                 sectionTitle: 'Tools Used to Build This Page',
                 imageUrl: './oliveMe.jpg',
                 meImageUrl: './sawako.jpg',
-                intro: 'Hi! Welcome to my website. I wanted to build a site which can showcase my skills I said I have on my resume, so here it is. This "Home" page was built using SCSS, CSS Animations. Nuxt.js/Vue.js/JavaScript.',
-                introTwo: 'The reason why I chose these technologies is that I am currently working in Vue.js, and I wanted to let the world know that I can style without Bootstrap and other libraries.',
+                intro: 'Hi! Welcome to my website. I wanted to build a site which can showcase my skills I said I have on my resume, so here it is. This "Home" page was built using SCSS, CSS Animations. Nuxt.js/Vue.js/JavaScript.The reason why I chose these technologies is that I am currently working in Vue.js, and I wanted to let the world know that I can style without Bootstrap and other libraries.',
             }
         },
         methods: {
@@ -83,24 +81,79 @@ import homeSectionTwo from '../components/homeSectionTwo';
         .titleOverBlur {
             @include align-text-center-with-100;
             position: absolute;
-            top: 30%;
             border-bottom: 1px solid white;
         }
         .subTitleOverBlur {
             @include align-text-center-with-100;
             position: absolute;
-            top: 40%;
         }
     }
-       
+    .introSection {
+        background-color: #FC8210;
+        h2 {
+            position: relative;
+            margin-left: 5%;
+            top: 1.1rem;
+        }
+        p {
+            background: white;
+            border: solid orange 1px;
+            position: relative;
+            left: 2.5%;
+            top: 1rem;
+            margin: 0;
+            padding: 2.5%;
+        }
+    }
+    @media only screen and (min-width: 320px) {
+        /* For tablets: */
+        .profilePic {
+            .titleOverBlur {
+                top: 10%;
+            }
+            .subTitleOverBlur {
+                top: 20%;
+            }
+            #blurImage {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+        .introSection {
+            width: 95%;
+        }
+    }
     @media only screen and (min-width: 600px) {
         /* For tablets: */
-        
+        .profilePic {
+            .titleOverBlur {
+                top: 20%;
+            }
+            .subTitleOverBlur {
+                top: 30%;
+            }
+            #blurImage {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
     }
 
     @media only screen and (min-width: 768px) {
         @include display-other-images;
         /* For desktop: */
+        .profilePic {
+            .titleOverBlur {
+                top: 30%;
+            }
+            .subTitleOverBlur {
+                top: 40%;
+            }
+            #blurImage {
+                width: auto;
+                margin: 0 auto;
+            }
+        }
 
     }
     @media only screen and (min-width: 900px) {

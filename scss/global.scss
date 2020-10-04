@@ -1,5 +1,10 @@
 $font-family-h1h2: 'Shadows Into Light', cursive;
-
+$accent-color: #FF427F;
+$link-color: white;
+html, body {
+    width: 100%;
+    margin: 0;
+}
 
 html {
     scroll-behavior: smooth;
@@ -7,4 +12,11 @@ html {
 
 body {
     font-family: $font-family-h1h2;
+}
+
+a {
+    color: $link-color;
+}
+a:hover {
+    color: $accent-color;
 }
