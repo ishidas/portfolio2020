@@ -1,5 +1,6 @@
 <template>
     <div ref="homediv" class="home" @stick="addSticky">
+        <Fireworks />
         <div class="profilePic">
             <img id="blurImage" :src="imageUrl" alt="Photo of Olive and I" />
             <img class="secondaryImage" id="clearImage1" :src="imageUrl" alt="Photo of Olive and I" />
@@ -16,10 +17,12 @@
 
 <script>
 import homeSectionTwo from '../components/homeSectionTwo';
+import Fireworks from '../components/fireworks';
 
     export default {
         components: {
             homeSectionTwo,
+            Fireworks,
         },
         data() {
             return {
@@ -60,13 +63,16 @@ import homeSectionTwo from '../components/homeSectionTwo';
             display: block;
             position: absolute;
             width: 18rem;
-            top: 60%;
+            top: 40%;
             right: 5%;
             transform: rotate(10deg);
         }
     }
+    .home {
+        background: black;
+        flex: 1 0 auto;
+    }
     .profilePic {
-        background-color: #007892;
         .secondaryImage {
             display: none;
         }
@@ -90,6 +96,8 @@ import homeSectionTwo from '../components/homeSectionTwo';
     }
     .introSection {
         background-color: #FC8210;
+        position: relative;
+        top: -1.5rem;
         h2 {
             position: relative;
             margin-left: 5%;
@@ -120,7 +128,7 @@ import homeSectionTwo from '../components/homeSectionTwo';
             }
         }
         .introSection {
-            width: 95%;
+            margin: 0 2.5%;
         }
     }
     @media only screen and (min-width: 600px) {
@@ -158,6 +166,10 @@ import homeSectionTwo from '../components/homeSectionTwo';
     }
     @media only screen and (min-width: 900px) {
         /* For desktop: */
+        .introSection {
+            position: relative;
+            top: -2rem;
+        }
 
     }
     @media only screen and (min-width: 1250px) {
