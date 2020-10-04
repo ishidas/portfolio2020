@@ -1,13 +1,17 @@
 <template>
-    <div ref="homediv" class="home col-12 col-s-12" @stick="addSticky">
-        <img :src="imageUrl" alt="Photo by Annie Spratt on Unsplash" />
-        <h1>{{title}}<br>{{subTitle}}</h1>
-        <section class="col-12 col-s-12">
+    <div ref="homediv" class="home" @stick="addSticky">
+        <div class="profilePic">
+            <img id="blurImage" :src="imageUrl" alt="Photo of Olive and I" />
+            <img class="secondaryImage" id="clearImage1" :src="imageUrl" alt="Photo of Olive and I" />
+            <img class="secondaryImage" id="clearImage2" :src="meImageUrl" alt="Sawako sitting at a table in italy" />
+            <h1 class="titleOverBlur">{{title}}</h1>
+            <h2 class="subTitleOverBlur">{{subTitle}}</h2>
+        </div>
+        <section class="">
             <h2>{{sectionTitle}}</h2>
             <p>{{intro}}</p>
             <p>{{introTwo}}</p>
         </section>
-        <homeSectionTwo />
     </div>
 </template>
 
@@ -21,9 +25,10 @@ import homeSectionTwo from '../components/homeSectionTwo';
         data() {
             return {
                 title: 'Sawako Ishida Sagliano',
-                subTitle: 'DEVELOPER',
+                subTitle: 'FULL STACK DEVELOPER',
                 sectionTitle: 'Tools Used to Build This Page',
-                imageUrl: './annie-spratt-OWq8w3BYMFY-unsplash.jpg',
+                imageUrl: './oliveMe.jpg',
+                meImageUrl: './sawako.jpg',
                 intro: 'Hi! Welcome to my website. I wanted to build a site which can showcase my skills I said I have on my resume, so here it is. This "Home" page was built using SCSS, CSS Animations. Nuxt.js/Vue.js/JavaScript.',
                 introTwo: 'The reason why I chose these technologies is that I am currently working in Vue.js, and I wanted to let the world know that I can style without Bootstrap and other libraries.',
             }
@@ -38,126 +43,72 @@ import homeSectionTwo from '../components/homeSectionTwo';
 </script>
 
 <style lang="scss" scoped>
-
-    .home {
-        display: flex;
-        height: auto;
-        flex-wrap: wrap;
-        img {
-            position: absolute;
-            max-width: 100%;
-        }
-        h1 {
-            width: 100%;
-            margin-top: 7rem;
-            text-align: center;
-            z-index: 1;
-        }
-        section {
-            width: 100%;
-            height: auto;
-            display: flex;
-            flex-wrap: wrap;
-            z-index: 0;
-            background-color: #f1eceb;
-            p {
-                width: 40vw;
-                margin: 5vw auto;
-            }
-        }
-    }
-
-    [class*="col-"] {
+    $accent-color: #FF427F;
+    @mixin align-text-center-with-100 {
         width: 100%;
-        padding: 0;
-
-        h1 {
-            font-size: 2vh;
-            margin-top: 8rem;
-            z-index: 0;
+        text-align: center;
+        color: $accent-color;
+    }
+    @mixin display-other-images {
+        #clearImage1 {
+            display: block;
+            position: absolute;
+            width: 18rem;
+            top: 10%;
+            left: 5%;
+            transform: rotate(-15deg);
         }
-        section {
-            height: 65vh;
+        #clearImage2 {
+            display: block;
+            position: absolute;
+            width: 18rem;
+            top: 60%;
+            right: 5%;
+            transform: rotate(10deg);
         }
     }
-    
+    .profilePic {
+        background-color: #007892;
+        .secondaryImage {
+            display: none;
+        }
+        #blurImage {
+            display: block;
+            margin: 5% auto;
+            padding: 5% 0;
+            /* Add the blur effect */
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+        }
+        .titleOverBlur {
+            @include align-text-center-with-100;
+            position: absolute;
+            top: 30%;
+            border-bottom: 1px solid white;
+        }
+        .subTitleOverBlur {
+            @include align-text-center-with-100;
+            position: absolute;
+            top: 40%;
+        }
+    }
+       
     @media only screen and (min-width: 600px) {
         /* For tablets: */
-        .col-s-12 {
-            width: 100%;
-            padding: 0;
-            h1 {
-                font-size: 3vh;
-                margin-top: 13rem;
-                z-index: 0;
-            }
-            section {
-                height: auto;
-                h2 {
-                    padding-left: 5vh;
-                }
-            }
-        }
+        
     }
 
     @media only screen and (min-width: 768px) {
+        @include display-other-images;
         /* For desktop: */
-        .col-12 {
-            width: 100%;
-            padding: 0;
-            h1 {
-                font-size: 3vh;
-                margin-top: 20rem;
-                margin-bottom: 3rem;
-                z-index: 0;
-            }
-            section {
-                height: auto;
-                h2 {
-                    padding-left: 7vh;
-                }
-            }
-        }
 
     }
     @media only screen and (min-width: 900px) {
         /* For desktop: */
-        .col-12 {
-            width: 100%;
-            padding: 0;
-            h1 {
-                font-size: 3vh;
-                margin-top: 22rem;
-                margin-bottom: 6rem;
-                z-index: 0;
-            }
-            section {
-                height: auto;
-                h2 {
-                    padding-left: 7vh;
-                }   
-            }
-        }
 
     }
     @media only screen and (min-width: 1250px) {
         /* For desktop: */
-        .col-12 {
-            width: 100%;
-            padding: 0;
-            h1 {
-                margin-top: 29rem;
-                margin-bottom: 13rem;
-                z-index: 0;
-            }
-            section {
-                height: auto;
-                h2 {
-                    padding-left: 11vh;
-                    font-size: 3vh;
-                }
-            }
-        }
 
     }
 

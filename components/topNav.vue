@@ -94,7 +94,7 @@ import _ from 'lodash';
             animation: fadein 2s;
             a {
                 padding: 1rem;
-                color:white;
+                // color:white;
                 font-style: none;
                 text-decoration: none;
             }
@@ -110,7 +110,7 @@ import _ from 'lodash';
         z-index: 2;
         
         // background-color: #636363c7;
-        background-color: #c7a08099;
+        // background-color: #444444;
         -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
         -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */

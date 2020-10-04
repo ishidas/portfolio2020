@@ -1,8 +1,8 @@
 <template>
-  <v-app>
+  <div>
     <top-nav @stick="emitStick"/>
     <nuxt/>
-  </v-app>
+  </div>
 </template>
 
 <script>
