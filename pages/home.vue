@@ -12,17 +12,20 @@
             <h2>{{sectionTitle}}</h2>
             <p>{{intro}}</p>
         </section>
+        <RecentProjects />
     </div>
 </template>
 
 <script>
 import homeSectionTwo from '../components/homeSectionTwo';
 import Fireworks from '../components/fireworks';
+import RecentProjects from '../components/recentProjects';
 
     export default {
         components: {
             homeSectionTwo,
             Fireworks,
+            RecentProjects,
         },
         data() {
             return {
@@ -81,8 +84,8 @@ import Fireworks from '../components/fireworks';
             margin: 5% auto;
             padding: 5% 0;
             /* Add the blur effect */
-            filter: blur(8px);
-            -webkit-filter: blur(8px);
+            filter: blur(10px);
+            -webkit-filter: blur(10px);
         }
         .titleOverBlur {
             @include align-text-center-with-100;

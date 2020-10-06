@@ -1,7 +1,7 @@
 <template>
     <div>
         <footer>
-            <p>Original fireworks animation created by <a :href={authorUrl}>Judith Neumann</a> in CodePen. adopted into vue by me</p>
+            <p v-if="isHome">Original fireworks animation created by <a :href={authorUrl}>Judith Neumann</a> in CodePen. adopted into vue by me</p>
         </footer>
     </div>
 </template>
@@ -13,6 +13,11 @@
                 authorUrl: 'https://codepen.io/judag/pen/XmXMOL'
             }
         },
+        computed: {
+            isHome() {
+                return this.$route.name === 'home';
+            }
+        }
     }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="default-container">
     <top-nav @stick="emitStick"/>
     <nuxt/>
     <Footer />
@@ -28,5 +28,7 @@ import Footer from '../components/footer.vue';
 </script>
 
 <style lang="scss" scoped>
-
+  .default-container {
+    flex-grow: 1;
+  }
 </style>

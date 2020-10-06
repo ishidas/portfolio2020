@@ -1,7 +1,8 @@
 <template>
 <div class="nav-wrapper">
     <nav ref="navigation" :class="isSticky ? 'sticky-nav' : ''">
-        <router-link           
+        <router-link
+            :class="isHome ? 'nav-link-home' : 'nav-link-contact'"           
             v-for="(item, index) in items"
             :key="index"
             :to="{
@@ -31,6 +32,11 @@ import _ from 'lodash';
                     }
                 ],
                 isSticky: false,
+            }
+        },
+        computed: {
+            isHome() {
+                return this.$route.name === 'home';
             }
         },
         watch: {
@@ -76,6 +82,18 @@ import _ from 'lodash';
 </script>
 
 <style lang="scss" scoped>
+    .nav-link-home {
+        color: white;
+    }
+    .nav-link-home:hover {
+        color: #FF427F;
+    }
+    .nav-link-contact {
+        color: #FF427F;
+    }
+    .nav-link-contact:hover {
+        color: #007892;
+    }
     .nav-wrapper {
         display: flex;
         width: 100%;

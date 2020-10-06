@@ -1,7 +1,9 @@
 <template>
-    <div class="home">
-        <!-- <img :src="imageUrl" alt="Photo by Erol Ahmed on Unsplash" /> -->
-        <section class="">
+    <div class="contact">
+        <div class="contactImageContainer">
+            <img class="contactImage" :src="imageUrl" alt="My dog Olive's pixel art by Sawako" />
+        </div>
+        <section class="contactContainer">
             <h1>Contact</h1>
             <ul>
                 <li
@@ -22,11 +24,10 @@
     export default {
         data() {
             return {
-                imageUrl: 'erol-ahmed-IHL-Jbawvvo-unsplash.jpg',
+                imageUrl: 'pixil-olive512x512.png',
                 items: [
                     { title: 'name', value: 'Sawako Ishida Sagliano', type: 'string' },
-                    { title: 'phone', value: '808-230-9698', type: 'string'},
-                    { title: 'city', value: 'Seattle, WA', type: 'string' },
+                    { title: 'city', value: 'Seattle, WA until December 2020. Moving back to Osaka, Japan', type: 'string' },
                     { title: 'email', value: 'sawako.ishida1@gmail.com', type: 'email'} ,
                     { title: 'linkedInUrl', value: 'https://www.linkedin.com/in/sawakoi/', type: 'url'},
                     { title: 'GithubUrl', value: 'https://github.com/ishidas' , type: 'url'},
@@ -38,107 +39,94 @@
 </script>
 
 <style lang="scss" scoped>
-//  .home {
-//     display: flex;
-//     min-height: 100vh;
-//     flex-wrap: wrap;
-//     img {
-//             position: absolute;
-//             max-width: 100%;
-//     }
-//     h1 {
-//         width: 100%;
-//         margin-top: 15rem;
-//         text-align: center;
-//         z-index: 1;
-//     }
-//     section {
-//         width: 100%;
-//         height: auto;
-//         display: flex;
-//         flex-wrap: wrap;
-//         // background-color: #f1eceb;
-//     }
-//     ul {
-//         width: 100%;
-//         padding-top: 5vh;
-//         padding-bottom: 5vh;
-//         background-color: #fafafaa3;
-//         text-align: center;
-//         z-index: 1;
-//         li {
-//             min-width: 30vw;
-//             list-style: none;
-//             align-items: flex-end;
-//             z-index: 1;
-//         }
-//     }
-// }
-//     [class*="col-"] {
-//         width: 100%;
-//         padding: 0;
-//     }
-//      @media only screen and (min-width: 600px) {
-//         /* For tablets: */
-//         .col-s-12 {
-//             width: 100%;
-//             padding: 0;     
-//         }
-//         .home > section > h1 {
-//             margin-bottom: 8rem;
-//         }
+    $contact-accent-color: #007892;
+    a {
+        color: $contact-accent-color;
+    }
+    body {
+        background: black;
+    }
+    .contact {
+        // flex: 1 0 auto;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: auto;
+        align-items: stretch;
+    }
+    .contactImageContainer {
+        display: flex;
+        justify-content: center;
+        .contactImage {
+            width: 70%;
+            padding-top: 20%;
+        }
+    }
+    .contactContainer {
+        // display: flex;
+        h1 {
+            display: block;
+            margin-top: 0;
+            text-align: center;
+            // padding-left: 5%;
+        }
+        ul {
+            padding-left: 5%;
+            padding-bottom: 10%;
+            margin: 0 auto;
+            width: 80%;
+            li {
+                list-style: none;
+            }
+        }
+    }
+    @media only screen and (min-width: 600px) {
+        /* For tablets: */
+        .contactImageContainer {
+            .contactImage {
+                width: 50%;
+                padding-top: 10%;
+            }
+        }
+        .contactContainer {
+            ul {
+                width: 60%;
+            }
+        }
+    }
 
-//     }
+    @media only screen and (min-width: 768px) {
+        /* For desktop: */
+        .contactImageContainer {
+            .contactImage {
+                width: 30%;
+                padding-top: 10%;
+            }
+        }
 
-//     @media only screen and (min-width: 768px) {
-//         /* For desktop: */
-//         .col-12 {
-//             width: 100%;
-//             padding: 0;
-          
-//         }
-//         .home > section > h1 {
-//             margin-bottom: 15rem;
-//         }
+    }
+    @media only screen and (min-width: 900px) {
+        /* For desktop: */
+        .contactImageContainer {
+            .contactImage {
+                width: 25%;
+                padding-top: 5%;
+            }
+        }
+        .contactContainer {
+            ul {
+                width: 50%;
+            }
+        }
+    }
 
-//     }
-//     @media only screen and (min-width: 900px) {
-//         /* For desktop: */
-//         .col-12 {
-//             width: 100%;
-//             padding: 0;
-//         }
-//         .home > section {
-//             justify-content: center;
-//             h1 {
-//                 margin-top: 10rem;
-//                 margin-bottom: 0rem;
-//             }
-//             ul {
-//                 width: 70%;
-//                 border-radius: 25px;
-//                 max-height: 40%;
-//             }
-//         } 
-//     }
-//     @media only screen and (min-width: 1250px) {
-//         /* For desktop: */
-//         .col-12 {
-//             width: 100%;
-//             padding: 0;
-//         }
-//         .home > section {
-//             justify-content: center;
-//             h1 {
-//                 margin-top: 10rem;
-//                 margin-bottom: 10rem;
-//             }
-//             ul {
-//                 width: 80%;
-//                 border-radius: 25px;
-//                 max-height: 40%;
-//             }
-//         } 
-//     }
+    @media only screen and (min-width: 1250px) {
+        /* For desktop: */
+        .contactContainer {
+            ul {
+                width: 30%;
+                padding-bottom: 5%;
+            }
+        }
+    }
 
 </style>
