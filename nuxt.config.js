@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+// import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'universal',
@@ -10,36 +10,52 @@ export default {
     title: 'Sawako Sagliano',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
-    // link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    // ]
+    script: [
+      {
+        src: 'https://kit.fontawesome.com/0a5988e323.js',
+        crossorigin: 'anonymous',
+      }
+    ],
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap'
+      }
+    ]
   },
   /*
   ** Customize the progress-bar color
   */
   router: {
-    middleware: ['home'],
   },
   loading: { color: '#fff' },
   /*
   ** Global CSS
   */
   css: [
+    'scss/global.scss'
   ],
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      }
+    }
+  },
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    'plugins/vuetify.js',
+    // 'plugins/vuetify.js',
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/vuetify',
+    // '@nuxtjs/vuetify',
   ],
   /*
   ** Nuxt.js modules
@@ -50,9 +66,9 @@ export default {
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
   */
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-  },
+  // vuetify: {
+  //   customVariables: ['~/assets/variables.scss'],
+  // },
 
   /*
   ** Build configuration

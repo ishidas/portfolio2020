@@ -2,7 +2,8 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
-$font-h1-color: white;
+// $font-h1-color: white;
+$font-family-h1h2: 'Shadows Into Light', cursive;
 $app-background-color: #c7a080;
 
 html {
@@ -14,10 +15,12 @@ html, main {
 }
 h1 {
     color: $font-h1-color;
+    font-family: $font-family-h1h2;
 }
 h2 {
     width: 100vw;
     font-size: 2vh;
+    font-family: $font-family-h1h2;
     padding-top: 6vh;
     padding-left: 5vh;
     padding-right: 6vh;

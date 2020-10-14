@@ -25,10 +25,13 @@
 
 <style lang="scss" scoped>
     #brooke-lark-img {
-            max-width: 50%;
+            max-width: 30rem;
+            padding: 3rem;
             height: 100%;
     }
-    
+    h2 {
+            text-align: center;
+    }
     [class*="col-"] {
         section {
             div {

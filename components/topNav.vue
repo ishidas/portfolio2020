@@ -1,11 +1,13 @@
 <template>
 <div class="nav-wrapper">
     <nav ref="navigation" :class="isSticky ? 'sticky-nav' : ''">
-        <router-link           
+        <router-link
+            :class="isHome ? 'nav-link-home' : 'nav-link-contact'"           
             v-for="(item, index) in items"
             :key="index"
             :to="{
                 name: item.page,
+                path: '/',
             }"
         >
             {{item.value}}
@@ -23,7 +25,7 @@ import _ from 'lodash';
                 items: [
                     {
                         value: 'Home',
-                        page: 'home'
+                        page: 'index'
                     },
                     {
                         value:'Contact',
@@ -31,6 +33,11 @@ import _ from 'lodash';
                     }
                 ],
                 isSticky: false,
+            }
+        },
+        computed: {
+            isHome() {
+                return this.$route.name === 'home';
             }
         },
         watch: {
@@ -76,6 +83,18 @@ import _ from 'lodash';
 </script>
 
 <style lang="scss" scoped>
+    .nav-link-home {
+        color: white;
+    }
+    .nav-link-home:hover {
+        color: #FF427F;
+    }
+    .nav-link-contact {
+        color: #FF427F;
+    }
+    .nav-link-contact:hover {
+        color: #007892;
+    }
     .nav-wrapper {
         display: flex;
         width: 100%;
@@ -94,7 +113,7 @@ import _ from 'lodash';
             animation: fadein 2s;
             a {
                 padding: 1rem;
-                color:white;
+                // color:white;
                 font-style: none;
                 text-decoration: none;
             }
@@ -110,7 +129,7 @@ import _ from 'lodash';
         z-index: 2;
         
         // background-color: #636363c7;
-        background-color: #c7a08099;
+        // background-color: #444444;
         -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
         -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
