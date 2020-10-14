@@ -23,7 +23,13 @@ import Footer from '../components/footer.vue';
       emitStick() {
         this.$emit('stick');
       }
-    }
+    },
+    // watch: {
+    //   $route() {
+    //       console.log('hitting route chnage!!!')
+    //       location.reload();
+    //   }
+    // }
   }
 </script>
 

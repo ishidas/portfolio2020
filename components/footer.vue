@@ -1,7 +1,7 @@
 <template>
     <div>
         <footer>
-            <p v-if="isHome">Original fireworks animation created by <a :href={authorUrl}>Judith Neumann</a> in CodePen. adopted into vue by me</p>
+            <p v-if="isHome">Original fireworks animation created by <a :href="authorUrl">Judith Neumann</a> in CodePen. adopted into vue by me</p>
         </footer>
     </div>
 </template>
@@ -15,7 +15,7 @@
         },
         computed: {
             isHome() {
-                return this.$route.name === 'home';
+                return this.$route.name === 'index';
             }
         }
     }

@@ -7,6 +7,7 @@
             :key="index"
             :to="{
                 name: item.page,
+                path: '/',
             }"
         >
             {{item.value}}
@@ -24,7 +25,7 @@ import _ from 'lodash';
                 items: [
                     {
                         value: 'Home',
-                        page: 'home'
+                        page: 'index'
                     },
                     {
                         value:'Contact',

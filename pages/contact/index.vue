@@ -24,7 +24,7 @@
     export default {
         data() {
             return {
-                imageUrl: 'pixil-olive512x512.png',
+                imageUrl: 'https://s3-us-west-2.amazonaws.com/sawakosagliano.com/pixil-olive512x512.png',
                 items: [
                     { title: 'name', value: 'Sawako Ishida Sagliano', type: 'string' },
                     { title: 'city', value: 'Seattle, WA until December 2020. Moving back to Osaka, Japan', type: 'string' },

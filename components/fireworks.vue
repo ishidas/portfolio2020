@@ -16,31 +16,43 @@
                 h: 1000,
                 particles: [],
                 probability: 0.04,
+                timer: null,
+                randomNumber: Math.random(),
+                // ready: false,
             }
         },
-        beforeMount() {
-            window.addEventListener("resize", this.resizeCanvas, false);
-            window.addEventListener("DOMContentLoaded", this.onLoad, false);
-            window.requestAnimationFrame = 
-            window.requestAnimationFrame       || 
-            window.webkitRequestAnimationFrame || 
-            window.mozRequestAnimationFrame    || 
-            window.oRequestAnimationFrame      || 
-            window.msRequestAnimationFrame     || 
-            function (callback) {
-                window.setTimeout(callback, 1000/60);
-            };
+        mounted() {
+            if (process.client) {
+                this.prepare();
+            }
         },
         beforeDestroy() {
             window.removeEventListener("resize", this.resizeCanvas, false);
-            window.removeEventListener("DOMContentLoaded", this.onLoad, false);
+            window.removeEventListener("load", this.onLoad, false);
+            if (this.timer) {
+                window.clearTimeout(this.timer);
+            }
         },
         methods: {
+            prepare() {
+                window.addEventListener("resize", this.resizeCanvas);
+                window.addEventListener("load", this.onLoad);
+
+                window.requestAnimationFrame = 
+                window.requestAnimationFrame       || 
+                window.webkitRequestAnimationFrame || 
+                window.mozRequestAnimationFrame    || 
+                window.oRequestAnimationFrame      || 
+                window.msRequestAnimationFrame     || 
+                function (callback) {
+                    this.timer = window.setTimeout(callback, 1000/60);
+                }
+                this.onLoad();
+            },
             onLoad() {
                 this.canvas = document.getElementById("canvas");
                 this.ctx = canvas.getContext("2d");
                 this.resizeCanvas();
-                
                 window.requestAnimationFrame(this.updateWorld);
             },
             resizeCanvas() {
@@ -91,7 +103,7 @@
                     this.particles.push(particle);
                 }
             },
-        }
+        },
     }
     function Particle() {
         this.w = this.h = Math.random()*4+1;
@@ -114,7 +126,6 @@
             this.vy += this.gravity;
             this.y += this.vy;
             this.alpha -= 0.01;
-            // console.log('screen.width', screen.width)
             if (this.x <= -this.w || this.x >= screen.width ||
                 this.y >= screen.height ||
                 this.alpha <= 0) {

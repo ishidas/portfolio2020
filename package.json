@@ -10,6 +10,7 @@
     "start": "nuxt start -w",
     "generate": "nuxt generate",
     "test": "jest",
+    "s3deploy": "aws s3 cp dist s3://sawakosagliano.com --recursive",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
